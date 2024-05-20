@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GeoManage</string>
+
+    <string name="hint_email">E-mail</string>
+    <string name="hint_senha">Senha</string>
+    <string name="logo_description">Logo do App</string>
+    <string name="txt_button_entrar">Entrar</string>
+    <string name="txt_tela_cadastro">Não tem conta? Cadastre-se!</string>
+</resources>
