@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_logo"
-        tools:context=".activities.RegisterPageActivity">
+        tools:context=".activities.usuario.CriarUsuarioActivity">
 
         <View
             android:id="@+id/containerTop"

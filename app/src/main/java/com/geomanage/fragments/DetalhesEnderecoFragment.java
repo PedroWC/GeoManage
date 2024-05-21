@@ -14,10 +14,10 @@ import com.geomanage.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddressDetailFragment#newInstance} factory method to
+ * Use the {@link DetalhesEnderecoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddressDetailFragment extends Fragment {
+public class DetalhesEnderecoFragment extends Fragment {
 
     private static final String ARG_DESCRICAO = "descricao";
     private static final String ARG_RUA = "rua";
@@ -35,8 +35,8 @@ public class AddressDetailFragment extends Fragment {
     private String pais;
     private String cep;
 
-    public static AddressDetailFragment newInstance(String descricao, String rua, String bairro, String cidade, String estado, String pais, String cep) {
-        AddressDetailFragment fragment = new AddressDetailFragment();
+    public static DetalhesEnderecoFragment newInstance(String descricao, String rua, String bairro, String cidade, String estado, String pais, String cep) {
+        DetalhesEnderecoFragment fragment = new DetalhesEnderecoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_DESCRICAO, descricao);
         args.putString(ARG_RUA, rua);
@@ -67,7 +67,7 @@ public class AddressDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_address_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_detalhes_endereco, container, false);
         TextView descricaoTextView = view.findViewById(R.id.descricaoTextView);
         TextView ruaTextView = view.findViewById(R.id.ruaTextView);
         TextView bairroTextView = view.findViewById(R.id.bairroTextView);

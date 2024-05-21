@@ -1,4 +1,4 @@
-package com.geomanage.activities;
+package com.geomanage.activities.usuario;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.geomanage.activities.OpcoesActivity;
 import com.geomanage.database.AppDatabase;
 import com.geomanage.databinding.ActivityLoginPageBinding;
 import com.geomanage.entities.Usuario;
@@ -15,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
-public class LoginPageActivity extends AppCompatActivity {
+public class LoginUsuarioActivity extends AppCompatActivity {
     private ActivityLoginPageBinding binding;
     private Intent intent;
     private AppDatabase db;
@@ -35,7 +36,7 @@ public class LoginPageActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        intent = new Intent(this, OptionsActivity.class);
+        intent = new Intent(this, OpcoesActivity.class);
     }
 
     private void login(View view) {

@@ -14,14 +14,13 @@ import com.geomanage.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Uma subclasse {@link Fragment} simples.
- * Use o método de fábrica {@link ListFragment#newInstance} para
+ * Use o método de fábrica {@link ListarFragment#newInstance} para
  * crie uma instância deste fragmento.
  */
-public class ListFragment extends Fragment {
+public class ListarFragment extends Fragment {
 
     private static final String ARG_TYPE = "type";
     public static final String TYPE_CITY = "city";
@@ -32,8 +31,8 @@ public class ListFragment extends Fragment {
     private ArrayAdapter<String> adapter;
     private List<String> items = new ArrayList<>();
 
-    public static ListFragment newInstance(String type) {
-        ListFragment fragment = new ListFragment();
+    public static ListarFragment newInstance(String type) {
+        ListarFragment fragment = new ListarFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TYPE, type);
         fragment.setArguments(args);
@@ -51,7 +50,7 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_listar, container, false);
         listView = view.findViewById(R.id.listView);
 
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, items);

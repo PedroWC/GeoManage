@@ -14,10 +14,10 @@ import com.geomanage.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CityDetailFragment#newInstance} factory method to
+ * Use the {@link DetalhesCidadeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CityDetailFragment extends Fragment {
+public class DetalhesCidadeFragment extends Fragment {
 
     private static final String ARG_CIDADE = "cidade";
     private static final String ARG_ESTADO = "estado";
@@ -25,8 +25,8 @@ public class CityDetailFragment extends Fragment {
     private String cidade;
     private String estado;
 
-    public static CityDetailFragment newInstance(String cidade, String estado) {
-        CityDetailFragment fragment = new CityDetailFragment();
+    public static DetalhesCidadeFragment newInstance(String cidade, String estado) {
+        DetalhesCidadeFragment fragment = new DetalhesCidadeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_CIDADE, cidade);
         args.putString(ARG_ESTADO, estado);
@@ -47,7 +47,7 @@ public class CityDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_city_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_detalhes_cidade, container, false);
         TextView cidadeTextView = view.findViewById(R.id.cidadeTextView);
         TextView estadoTextView = view.findViewById(R.id.estadoTextView);
 

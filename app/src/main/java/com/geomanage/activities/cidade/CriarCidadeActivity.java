@@ -1,4 +1,4 @@
-package com.geomanage.activities;
+package com.geomanage.activities.cidade;
 
 import android.os.Bundle;
 
@@ -10,19 +10,17 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.geomanage.R;
 
-public class RegisterPageActivity extends AppCompatActivity {
+public class CriarCidadeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register_page);
+        setContentView(R.layout.activity_criar_cidade);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
-
-    // TODO: Implementar lógica de criação de usuários
 }

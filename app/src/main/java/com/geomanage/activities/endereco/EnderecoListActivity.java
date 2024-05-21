@@ -1,21 +1,21 @@
-package com.geomanage.activities;
+package com.geomanage.activities.endereco;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.R;
-import com.geomanage.fragments.ListFragment;
+import com.geomanage.fragments.ListarFragment;
 
 public class EnderecoListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_listar);
 
         if (savedInstanceState == null) {
-            ListFragment fragment = ListFragment.newInstance(ListFragment.TYPE_ADDRESS);
+            ListarFragment fragment = ListarFragment.newInstance(ListarFragment.TYPE_ADDRESS);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit();

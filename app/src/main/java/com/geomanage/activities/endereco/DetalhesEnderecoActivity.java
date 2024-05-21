@@ -1,4 +1,4 @@
-package com.geomanage.activities;
+package com.geomanage.activities.endereco;
 
 import android.content.Intent;
 import android.location.Address;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 
-public class AddressDetailActivity extends AppCompatActivity {
+public class DetalhesEnderecoActivity extends AppCompatActivity {
 
     private double latitude;
     private double longitude;
