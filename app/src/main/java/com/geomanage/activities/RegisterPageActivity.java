@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.geomanage.R;
 
-public class registerPageActivity extends AppCompatActivity {
+public class RegisterPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
