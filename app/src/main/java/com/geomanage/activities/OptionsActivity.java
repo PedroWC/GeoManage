@@ -23,4 +23,6 @@ public class OptionsActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    // TODO: Implementar ação dos botões
 }

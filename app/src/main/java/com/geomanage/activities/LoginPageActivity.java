@@ -71,4 +71,6 @@ public class LoginPageActivity extends AppCompatActivity {
             }
         }
     }
+
+    // TODO: Testar login do usuário
 }

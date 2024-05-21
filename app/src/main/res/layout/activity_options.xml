@@ -8,6 +8,7 @@
     tools:context=".activities.OptionsActivity">
 
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -24,12 +25,12 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:background="@color/colorBotao1"
-            android:text="Listar Cidades"
+            android:text="@string/listar_cidades"
             android:textColor="@color/colorTextBotoes"
             android:textSize="18sp"
-            android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="8dp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/right_arrow" />
 
         <TextView
             android:id="@+id/btnListarEnderecos"
@@ -38,12 +39,12 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:background="@color/colorBotao2"
-            android:text="Listar Endereços"
+            android:text="@string/listar_enderecos"
             android:textColor="@color/colorTextBotoes"
             android:textSize="18sp"
-            android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="8dp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/right_arrow" />
 
         <TextView
             android:id="@+id/btnListarUsuarios"
@@ -52,12 +53,12 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:background="@color/colorBotao3"
-            android:text="Listar Usuários"
+            android:text="@string/listar_usuarios"
             android:textColor="@color/colorTextBotoes"
             android:textSize="18sp"
-            android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="8dp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/right_arrow" />
 
         <TextView
             android:id="@+id/btnCadastrarCidade"
@@ -66,12 +67,12 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:background="@color/colorBotao4"
-            android:text="Cadastrar Cidade"
+            android:text="@string/cadastrar_cidade"
             android:textColor="@color/colorTextBotoes"
             android:textSize="18sp"
-            android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="8dp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/right_arrow" />
 
         <TextView
             android:id="@+id/btnCadastrarEnderecos"
@@ -80,12 +81,12 @@
             android:layout_weight="1"
             android:padding="16dp"
             android:background="@color/colorBotao5"
-            android:text="Cadastrar Endereços"
+            android:text="@string/cadastrar_enderecos"
             android:textColor="@color/colorTextBotoes"
             android:textSize="18sp"
-            android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="8dp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/right_arrow" />
 
     </LinearLayout>
 

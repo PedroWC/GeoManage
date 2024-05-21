@@ -23,4 +23,6 @@ public class RegisterPageActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    // TODO: Implementar lógica de criação de usuários
 }

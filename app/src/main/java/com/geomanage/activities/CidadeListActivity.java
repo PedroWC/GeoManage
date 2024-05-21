@@ -1,8 +1,6 @@
 package com.geomanage.activities;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,7 +17,6 @@ import java.util.List;
 public class CidadeListActivity extends AppCompatActivity {
 
     private AppDatabase DB;
-    private List<Cidade> listaCidades;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +35,7 @@ public class CidadeListActivity extends AppCompatActivity {
     }
 
     private void buscarCidades() {
-        listaCidades = DB.cidadeDao().getAllCidades();
+        List<Cidade> listaCidades = DB.cidadeDao().getAllCidades();
         List<String> cidadeNomes = new ArrayList<>();
         for (Cidade cidade : listaCidades) {
             cidadeNomes.add(cidade.getCidade());
@@ -50,4 +47,6 @@ public class CidadeListActivity extends AppCompatActivity {
             ((ListFragment) fragment).updateItems(cidadeNomes);
         }
     }
+
+    // TODO: tela de criação de cidade
 }

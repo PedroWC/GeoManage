@@ -21,4 +21,6 @@ public class EnderecoListActivity extends AppCompatActivity {
                     .commit();
         }
     }
+
+    // TODO: tela de criação de endereco
 }

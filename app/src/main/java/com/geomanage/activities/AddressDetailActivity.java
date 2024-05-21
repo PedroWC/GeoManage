@@ -84,4 +84,6 @@ public class AddressDetailActivity extends AppCompatActivity {
 
         return address;
     }
+
+    // TODO: tela de visualização de endereço no mapa
 }
