@@ -15,4 +15,13 @@
     <color name="green_logo">#23BE7E</color>
     <!--    -->
 
+    <!--    Cores botões tela opções-->
+    <color name="colorBotao1">#FF6F61</color>
+    <color name="colorBotao2">#6B5B95</color>
+    <color name="colorBotao3">#88B04B</color>
+    <color name="colorBotao4">#F7CAC9</color>
+    <color name="colorBotao5">#92A8D1</color>
+    <color name="colorTextBotoes">#000000</color>
+
+
 </resources>

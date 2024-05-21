@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/green_logo"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.loginPageActivity">
 
     <View
         android:id="@+id/containerTop"

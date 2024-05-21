@@ -13,7 +13,14 @@
         android:theme="@style/Theme.GeoManage"
         tools:targetApi="31">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.OptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.registerPageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GeoManage" />
+        <activity
+            android:name=".activities.loginPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

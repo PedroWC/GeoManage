@@ -6,4 +6,15 @@
     <string name="logo_description">Logo do App</string>
     <string name="txt_button_entrar">Entrar</string>
     <string name="txt_tela_cadastro">Não tem conta? Cadastre-se!</string>
+
+    <string name="txt_button_registrar">Registrar</string>
+    <string name="txt_tela_login">Já possui uma conta? Entre aqui!</string>
+    <string name="hint_nome">Nome</string>
+
+    <string name="listar_cidades">Listar Cidades</string>
+    <string name="listar_enderecos">Listar Endereços</string>
+    <string name="listar_usuarios">Listar Usuários</string>
+    <string name="cadastrar_cidade">Cadastrar Cidade</string>
+    <string name="cadastrar_enderecos">Cadastrar Endereços</string>
+
 </resources>

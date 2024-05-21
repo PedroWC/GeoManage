@@ -8,21 +8,21 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.database.AppDatabase;
-import com.geomanage.databinding.ActivityMainBinding;
+import com.geomanage.databinding.ActivityLoginPageBinding;
 import com.geomanage.entities.Usuario;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
+public class loginPageActivity extends AppCompatActivity {
+    private ActivityLoginPageBinding binding;
     private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if (getSupportActionBar() != null) getSupportActionBar().hide();
         getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
