@@ -1,4 +1,4 @@
-package com.geomanage.activities;
+package com.geomanage.activities.endereco;
 
 import android.content.Intent;
 import android.location.Address;
@@ -7,13 +7,13 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.geomanage.databinding.FragmentAddressDetailBinding;
+import com.geomanage.databinding.FragmentDetalhesEnderecoBinding;
 
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 
-public class AddressDetailActivity extends AppCompatActivity {
+public class DetalhesEnderecoActivity extends AppCompatActivity {
 
     private double latitude;
     private double longitude;
@@ -22,7 +22,7 @@ public class AddressDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FragmentAddressDetailBinding binding = FragmentAddressDetailBinding.inflate(getLayoutInflater());
+        FragmentDetalhesEnderecoBinding binding = FragmentDetalhesEnderecoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("bundle");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <application
         android:allowBackup="true"
@@ -11,32 +11,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoManage"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".activities.AddressDetailActivity"
+            android:name=".activities.cidade.CriarCidadeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CityDetailActivity"
+            android:name=".activities.endereco.DetalhesEnderecoActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.EnderecoListActivity"
+            android:name=".activities.cidade.DetalhesCidadeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CidadeListActivity"
+            android:name=".activities.endereco.EnderecoListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.cidade.CidadeListActivity"
             android:exported="false" />
         <activity
             android:name=".activities.cidadeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.OptionsActivity"
+            android:name=".activities.OpcoesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RegisterPageActivity"
+            android:name=".activities.usuario.CriarUsuarioActivity"
             android:exported="false"
             android:theme="@style/Theme.GeoManage" />
         <activity
-            android:name=".activities.LoginPageActivity"
-            android:exported="true">
+            android:name=".activities.usuario.LoginUsuarioActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
