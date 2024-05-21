@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentListar">
+
+    <!-- Fragment Listar -->
+    <fragment
+        android:id="@+id/fragmentListar"
+        android:name="com.geomanage.fragments.ListarFragment"
+        android:label="List Fragment"
+        tools:layout="@layout/fragment_listar">
+        <action
+            android:id="@+id/action_listar_to_detalhes_cidade"
+            app:destination="@id/fragmentDetalhesCidade" />
+        <action
+            android:id="@+id/action_listar_to_detalhes_endereco"
+            app:destination="@id/fragmentDetalhesEndereco" />
+        <action
+            android:id="@+id/action_listar_to_detalhes_usuario"
+            app:destination="@id/fragmentDetalhesUsuario" />
+    </fragment>
+
+    <!-- Fragment Detalhes Cidade -->
+    <fragment
+        android:id="@+id/fragmentDetalhesCidade"
+        android:name="com.geomanage.fragments.DetalhesCidadeFragment"
+        android:label="Detalhes Cidade"
+        tools:layout="@layout/fragment_detalhes_cidade">
+        <argument
+            android:name="cidadeId"
+            app:argType="integer" />
+    </fragment>
+
+    <!-- Fragment Detalhes Endereco -->
+    <fragment
+        android:id="@+id/fragmentDetalhesEndereco"
+        android:name="com.geomanage.fragments.DetalhesEnderecoFragment"
+        android:label="Detalhes Endereco"
+        tools:layout="@layout/fragment_detalhes_endereco">
+        <argument
+            android:name="enderecoId"
+            app:argType="integer" />
+    </fragment>
+
+    <!-- Fragment Detalhes Usuario -->
+    <fragment
+        android:id="@+id/fragmentDetalhesUsuario"
+        android:name="com.geomanage.fragments.DetalhesUsuarioFragment"
+        android:label="Detalhes Usuario"
+        tools:layout="@layout/fragment_detalhes_usuario">
+        <argument
+            android:name="usuarioId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

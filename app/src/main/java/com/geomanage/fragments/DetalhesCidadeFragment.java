@@ -2,6 +2,7 @@ package com.geomanage.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -11,48 +12,35 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.geomanage.R;
+import com.geomanage.database.AppDatabase;
+import com.geomanage.entities.Cidade;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DetalhesCidadeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DetalhesCidadeFragment extends Fragment {
 
-    private static final String ARG_CIDADE = "cidade";
-    private static final String ARG_ESTADO = "estado";
-
-    private String cidade;
-    private String estado;
-
-    public static DetalhesCidadeFragment newInstance(String cidade, String estado) {
-        DetalhesCidadeFragment fragment = new DetalhesCidadeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_CIDADE, cidade);
-        args.putString(ARG_ESTADO, estado);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private int cidadeId;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            cidade = getArguments().getString(ARG_CIDADE);
-            estado = getArguments().getString(ARG_ESTADO);
+            cidadeId = getArguments().getInt("cidadeId");
         }
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detalhes_cidade, container, false);
         TextView cidadeTextView = view.findViewById(R.id.cidadeTextView);
         TextView estadoTextView = view.findViewById(R.id.estadoTextView);
 
-        cidadeTextView.setText(cidade);
-        estadoTextView.setText(estado);
+        // Carregar os dados da cidade com base no cidadeId
+        AppDatabase db = AppDatabase.getDatabase(getContext());
+        Cidade cidade = db.cidadeDao().getCidadeById(cidadeId);
+
+        cidadeTextView.setText(cidade.getCidade());
+        estadoTextView.setText(cidade.getEstado());
 
         return view;
     }

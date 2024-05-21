@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.R;
-import com.geomanage.activities.cidade.CidadeListActivity;
-import com.geomanage.activities.endereco.EnderecoListActivity;
+ import com.geomanage.activities.cidade.ListarCidadeActivity;
+import com.geomanage.activities.endereco.ListarEnderecoActivity;
 
 public class OpcoesActivity extends AppCompatActivity {
 
@@ -24,12 +24,12 @@ public class OpcoesActivity extends AppCompatActivity {
         TextView btnCadastrarEnderecos = findViewById(R.id.btnCadastrarEnderecos);
 
         btnListarCidades.setOnClickListener(v -> {
-            Intent intent = new Intent(OpcoesActivity.this, CidadeListActivity.class);
+            Intent intent = new Intent(OpcoesActivity.this, ListarCidadeActivity.class);
             startActivity(intent);
         });
 
         btnListarEnderecos.setOnClickListener(v -> {
-            Intent intent = new Intent(OpcoesActivity.this, EnderecoListActivity.class);
+            Intent intent = new Intent(OpcoesActivity.this, ListarEnderecoActivity.class);
             startActivity(intent);
         });
 
