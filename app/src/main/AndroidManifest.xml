@@ -16,19 +16,10 @@
             android:name=".activities.cidade.CriarCidadeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.endereco.DetalhesEnderecoActivity"
+            android:name=".activities.endereco.ListarEnderecoActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.cidade.DetalhesCidadeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.endereco.EnderecoListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.cidade.CidadeListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.cidadeActivity"
+            android:name=".activities.cidade.ListarCidadeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.OpcoesActivity"
