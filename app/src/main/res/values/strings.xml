@@ -29,5 +29,7 @@
     <string name="hint_pais_endereco">País</string>
     <string name="hint_cep_endereco">CEP</string>
     <string name="btn_adicionar_endereco">Adicionar Endereço</string>
+    <string name="title_adicionar_cidade">Adiconar Cidade</string>
+    <string name="descricao_cancelar">Cancelar</string>
 
 </resources>
