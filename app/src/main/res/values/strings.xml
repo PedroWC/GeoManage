@@ -18,5 +18,16 @@
     <string name="cadastrar_enderecos">Cadastrar Endereços</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_nome_cidade">Nome da Cidade</string>
+    <string name="hint_estado">Estado</string>
+    <string name="btn_adicionar_cidade">Adicionar Cidade</string>
+    <string name="hint_desc_endereco">Descrição</string>
+    <string name="hint_rua_endereco">Rua</string>
+    <string name="hint_bairro_endereco">Bairro</string>
+    <string name="hint_cidade_endereco">Cidade</string>
+    <string name="hint_uf_endereco">Estado</string>
+    <string name="hint_pais_endereco">País</string>
+    <string name="hint_cep_endereco">CEP</string>
+    <string name="btn_adicionar_endereco">Adicionar Endereço</string>
 
 </resources>

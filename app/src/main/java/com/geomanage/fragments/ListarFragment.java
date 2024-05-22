@@ -2,13 +2,18 @@ package com.geomanage.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -48,10 +53,10 @@ public class ListarFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listar, container, false);
         ListView listView = view.findViewById(R.id.listView);
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
 
         adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
-
 
         listView.setOnItemClickListener((parent, view1, position, id) -> {
             NavController navController = Navigation.findNavController(view1);
@@ -75,6 +80,29 @@ public class ListarFragment extends Fragment {
 });
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_listar, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_add) {
+            // Dependendo da lógica, navegue para a atividade ou fragmento de adicionar cidade ou endereço
+            NavController navController = Navigation.findNavController(getView());
+            if (/* condição para adicionar cidade */) {
+                navController.navigate(R.id.action_listar_to_adicionar_cidade);
+            } else if (/* condição para adicionar endereço */) {
+                navController.navigate(R.id.action_listar_to_adicionar_endereco);
+            } else {
+                Toast.makeText(getContext(), "Adicionar item", Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void loadCidades() {

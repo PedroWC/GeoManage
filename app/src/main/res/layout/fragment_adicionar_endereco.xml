@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/green_logo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_latitude_endereco" />
+
+        <EditText
+            android:id="@+id/edt_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_longitude_endereco" />
+
+        <EditText
+            android:id="@+id/edt_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_titulo_endereco" />
+
+        <Button
+            android:id="@+id/btn_buscar_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_buscar_endereco" />
+
+        <fragment xmlns="http://schemas.android.com/apk/res/android"
+            xmlns="http://schemas.android.com/tools"
+            android:id="@+id/map_endereco"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            tools:context=".AdicionarEnderecoFragment" />
+
+        <Button
+            android:id="@+id/btn_visualizar_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/visualizar_detalhes_endereco" />
+    </LinearLayout>
+</ScrollView>
