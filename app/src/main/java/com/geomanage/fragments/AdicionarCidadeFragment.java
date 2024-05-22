@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -29,15 +29,13 @@ public class AdicionarCidadeFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adicionar_cidade, container, false);
 
-        nomeEditText = view.findViewById(R.id.nomeEditText);
+        nomeEditText = view.findViewById(R.id.nomeCidadeEditText);
         estadoEditText = view.findViewById(R.id.estadoEditText);
-        Button adicionarButton = view.findViewById(R.id.adicionarButton);
+        AppCompatButton adicionarButton = view.findViewById(R.id.btRegistrarCidade);
 
         adicionarButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                adicionarCidade();
-            }
+            public void onClick(View v) { adicionarCidade(); }
         });
 
         return view;

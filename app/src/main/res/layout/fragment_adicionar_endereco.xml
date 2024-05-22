@@ -1,51 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/green_logo">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/green_logo"
+        tools:context=".activities.fragments.AdicionarEnderecoFragment">
 
-        <EditText
-            android:id="@+id/edt_latitude"
+        <!--    Container top    -->
+        <View
+            android:id="@+id/containerTop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/green_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="@string/title_adicionar_endereco"
+            android:textSize="@dimen/title_size"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/containerTop"
+            app:layout_constraintEnd_toEndOf="@id/containerTop"
+            app:layout_constraintStart_toStartOf="@id/containerTop"
+            app:layout_constraintTop_toTopOf="@id/containerTop" />
+
+        <ImageButton
+            android:id="@+id/btnCancelar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_cancel"
+            android:contentDescription="@string/descricao_cancelar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Longitude -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayout_longitudeEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_latitude_endereco" />
+            app:layout_constraintTop_toBottomOf="@id/containerTop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/edt_longitude"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_longitudeEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_longitude_endereco"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Latitude -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayout_latitudeEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_longitude_endereco" />
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayout_longitudeEndereco"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/edt_titulo"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_latitudeEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_latitude_endereco"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Titulo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayout_tituloEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_titulo_endereco" />
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayout_latitudeEndereco"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_tituloEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_titulo_endereco"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botao buscar -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_buscar_endereco"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_buscar_endereco" />
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_btn_selector"
+            android:enabled="true"
+            android:padding="15dp"
+            android:text="@string/btn_buscar_endereco"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayout_tituloEndereco" />
 
+        <!-- Mapa -->
         <fragment xmlns="http://schemas.android.com/apk/res/android"
             xmlns="http://schemas.android.com/tools"
             android:id="@+id/map_endereco"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_buscar_endereco"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:context=".AdicionarEnderecoFragment" />
 
-        <Button
+        <!-- Botao visualizar detalhes -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_visualizar_endereco"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:text="@string/visualizar_detalhes_endereco" />
-    </LinearLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_btn_selector"
+            android:enabled="true"
+            android:padding="15dp"
+            android:text="@string/visualizar_detalhes_endereco"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/map_endereco"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

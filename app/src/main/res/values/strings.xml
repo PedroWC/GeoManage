@@ -31,5 +31,11 @@
     <string name="btn_adicionar_endereco">Adicionar Endereço</string>
     <string name="title_adicionar_cidade">Adiconar Cidade</string>
     <string name="descricao_cancelar">Cancelar</string>
+    <string name="title_adicionar_endereco">Adicionar Endereco</string>
+    <string name="hint_longitude_endereco">Longitude do endereço</string>
+    <string name="hint_latitude_endereco">Latitude do endereço</string>
+    <string name="hint_titulo_endereco">Título do endereço</string>
+    <string name="btn_buscar_endereco">Buscar endereço</string>
+    <string name="visualizar_detalhes_endereco">Visualizar dealhes do endereço</string>
 
 </resources>

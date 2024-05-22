@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_logo"
-        tools:context=".activities.usuario.CriarUsuarioActivity">
+        tools:context=".fragments.AdicionarCidadeFragment">
 
         <View
             android:id="@+id/containerTop"
@@ -113,7 +113,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btRegistrar"
+            android:id="@+id/btRegistrarCidade"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
