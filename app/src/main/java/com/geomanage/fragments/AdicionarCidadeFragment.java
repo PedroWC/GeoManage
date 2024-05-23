@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.EditText;import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,10 +32,15 @@ public class AdicionarCidadeFragment extends Fragment {
         nomeEditText = view.findViewById(R.id.nomeCidadeEditText);
         estadoEditText = view.findViewById(R.id.estadoEditText);
         AppCompatButton adicionarButton = view.findViewById(R.id.btRegistrarCidade);
+        ImageButton btnCancelar = view.findViewById(R.id.btnCancelar);
 
         adicionarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { adicionarCidade(); }
+        });
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { getParentFragmentManager().popBackStack(); }
         });
 
         return view;
