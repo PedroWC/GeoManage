@@ -20,6 +20,12 @@
         <action
             android:id="@+id/action_listar_to_detalhes_usuario"
             app:destination="@id/fragmentDetalhesUsuario" />
+        <action
+            android:id="@+id/action_fragmentListar_to_adicionarEnderecoFragment"
+            app:destination="@id/adicionarEnderecoFragment" />
+        <action
+            android:id="@+id/action_fragmentListar_to_adicionarCidadeFragment"
+            app:destination="@id/adicionarCidadeFragment" />
     </fragment>
 
     <!-- Fragment Detalhes Cidade -->
@@ -42,6 +48,12 @@
         <argument
             android:name="enderecoId"
             app:argType="integer" />
+        <argument
+            android:name="latitude"
+            app:argType="double" />
+        <argument
+            android:name="longitude"
+            app:argType="double" />
     </fragment>
 
     <!-- Fragment Detalhes Usuario -->
@@ -53,5 +65,23 @@
         <argument
             android:name="usuarioId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/adicionarEnderecoFragment"
+        android:name="com.geomanage.fragments.AdicionarEnderecoFragment"
+        android:label="AdicionarEnderecoFragment"
+        tools:layout="@layout/fragment_adicionar_endereco" >
+        <action
+            android:id="@+id/action_adicionarEnderecoFragment_to_fragmentDetalhesEndereco"
+            app:destination="@id/fragmentDetalhesEndereco" />
+    </fragment>
+    <fragment
+        android:id="@+id/adicionarCidadeFragment"
+        android:name="com.geomanage.fragments.AdicionarCidadeFragment"
+        android:label="AdicionarCidadeFragment"
+        tools:layout="@layout/fragment_adicionar_cidade" >
+        <action
+            android:id="@+id/action_adicionarCidadeFragment_to_fragmentDetalhesCidade"
+            app:destination="@id/fragmentDetalhesCidade" />
     </fragment>
 </navigation>
