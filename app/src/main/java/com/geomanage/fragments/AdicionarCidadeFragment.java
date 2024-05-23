@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;import android.widget.ImageButton;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,14 +35,8 @@ public class AdicionarCidadeFragment extends Fragment {
         AppCompatButton adicionarButton = view.findViewById(R.id.btRegistrarCidade);
         ImageButton btnCancelar = view.findViewById(R.id.btnCancelar);
 
-        adicionarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { adicionarCidade(); }
-        });
-        btnCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { getParentFragmentManager().popBackStack(); }
-        });
+        adicionarButton.setOnClickListener(v -> adicionarCidade());
+        btnCancelar.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         return view;
     }
@@ -63,7 +58,7 @@ public class AdicionarCidadeFragment extends Fragment {
 
         Toast.makeText(getContext(), "Cidade adicionada com sucesso", Toast.LENGTH_SHORT).show();
 
-        NavController navController = Navigation.findNavController(getView());
+        NavController navController = Navigation.findNavController(requireView());
         navController.popBackStack(); // Volta para o fragmento anterior
     }
 }
