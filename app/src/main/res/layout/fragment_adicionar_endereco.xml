@@ -166,8 +166,7 @@
             app:layout_constraintTop_toBottomOf="@id/txtInputLayout_tituloEndereco" />
 
         <!-- Mapa -->
-        <fragment xmlns="http://schemas.android.com/apk/res/android"
-            xmlns="http://schemas.android.com/tools"
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/map_endereco"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
@@ -188,6 +187,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/background_btn_selector"
             android:enabled="true"
             android:padding="15dp"
