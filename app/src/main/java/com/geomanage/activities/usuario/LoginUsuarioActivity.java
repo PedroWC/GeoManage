@@ -3,6 +3,8 @@ package com.geomanage.activities.usuario;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -82,21 +84,51 @@ public class LoginUsuarioActivity extends AppCompatActivity {
             Snackbar snackbar = Snackbar.make(view, "A senha precisa ter pelo menos 6 caracteres!", Snackbar.LENGTH_SHORT);
             snackbar.show();
         } else {
-
             ProgressBar progressBar = binding.progressBar;
             progressBar.setVisibility(View.VISIBLE);
 
             binding.btEntrar.setEnabled(false);
             binding.btEntrar.setTextColor(Color.parseColor("#FFFFFF"));
 
-            Usuario usuario = db.usuarioDao().login(email, senha);
+            Handler handler = new Handler(Looper.getMainLooper());
 
-            if (usuario != null) {
-                Snackbar snackbar = Snackbar.make(view, "Login efetuado com sucesso!", Snackbar.LENGTH_SHORT);
-                snackbar.show();
+            Runnable timeoutRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.GONE);
+                    binding.btEntrar.setEnabled(true);
+                    binding.btEntrar.setTextColor(Color.parseColor("#000000")); // Restaura a cor do texto
+                    Snackbar snackbar = Snackbar.make(view, "Tempo de resposta excedido. Tente novamente.", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+            };
 
-                startActivity(intent);
-            }
+            handler.postDelayed(timeoutRunnable, 5000); // Timeout de 5 segundos
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Usuario usuario = db.usuarioDao().login(email, senha);
+                    handler.removeCallbacks(timeoutRunnable); // Remove o timeout se o login for concluído a tempo
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setVisibility(View.GONE);
+                            binding.btEntrar.setEnabled(true);
+                            binding.btEntrar.setTextColor(Color.parseColor("#000000")); // Restaura a cor do texto
+
+                            if (usuario != null) {
+                                Snackbar snackbar = Snackbar.make(view, "Login efetuado com sucesso!", Snackbar.LENGTH_SHORT);
+                                snackbar.show();
+                                startActivity(intent);
+                            } else {
+                                Snackbar snackbar = Snackbar.make(view, "Usuário não encontrado!", Snackbar.LENGTH_SHORT);
+                                snackbar.show();
+                            }
+                        }
+                    });
+                }
+            }).start();
         }
     }
 }
