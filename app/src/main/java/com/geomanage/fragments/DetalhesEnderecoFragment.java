@@ -73,11 +73,6 @@ public class DetalhesEnderecoFragment extends Fragment {
             cepEditText = view.findViewById(R.id.cepEditText);
             carregarEndereco();
 
-            // Botoes
-            AppCompatButton btEditarEndereco = view.findViewById(R.id.btEditarEndereco);
-            btEditarEndereco.setOnClickListener(v -> {
-                // TODO
-            });
             AppCompatButton btExcluirEndereco = view.findViewById(R.id.btExcluirEndereco);
             btExcluirEndereco.setOnClickListener(v -> db.enderecoDao().delete(endereco));
             ImageButton btnCancelar = view.findViewById(R.id.btnCancelar);

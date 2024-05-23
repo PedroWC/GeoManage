@@ -3,9 +3,15 @@ package com.geomanage.activities.usuario;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.activities.OpcoesActivity;
@@ -31,6 +37,21 @@ public class LoginUsuarioActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
 
         db = AppDatabase.getDatabase(getApplicationContext());
+        String text = Objects.requireNonNull(binding.txtTelaCadastro.getText()).toString();
+        SpannableString spannableString = new SpannableString(text);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Intent intent = new Intent(LoginUsuarioActivity.this, CriarUsuarioActivity.class);
+                startActivity(intent);
+            }
+        };
+
+        int start = text.indexOf("Cadastre-se!");
+        int end = start + "Cadastre-se!".length();
+        spannableString.setSpan(clickableSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.txtTelaCadastro.setText(spannableString);
+        binding.txtTelaCadastro.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
