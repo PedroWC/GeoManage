@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.geomanage.R;
  import com.geomanage.activities.cidade.ListarCidadeActivity;
 import com.geomanage.activities.endereco.ListarEnderecoActivity;
+import com.geomanage.activities.usuario.ListarUsuarioActivity;
 
 public class OpcoesActivity extends AppCompatActivity {
 
@@ -34,7 +35,8 @@ public class OpcoesActivity extends AppCompatActivity {
         });
 
         btnListarUsuarios.setOnClickListener(v -> {
-            //TODO: Adicione a intenção para listar usuários aqui
+            Intent intent = new Intent(OpcoesActivity.this, ListarUsuarioActivity.class);
+            startActivity(intent);
         });
 
         btnCadastrarCidade.setOnClickListener(v -> {

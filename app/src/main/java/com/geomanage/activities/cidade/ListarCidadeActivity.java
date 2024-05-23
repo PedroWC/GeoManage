@@ -28,6 +28,4 @@ public class ListarCidadeActivity extends AppCompatActivity {
             }
         }
     }
-
-    // TODO: tela de criação de cidade
 }

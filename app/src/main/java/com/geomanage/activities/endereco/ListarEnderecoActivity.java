@@ -28,6 +28,4 @@ public class ListarEnderecoActivity extends AppCompatActivity {
             }
         }
     }
-
-    // TODO: tela de criação de endereco
 }

@@ -26,5 +26,8 @@ public interface EnderecoDao {
 
     @Query("SELECT * FROM Endereco")
     List<Endereco> getAllEnderecos();
+
+    @Query("SELECT * FROM Endereco WHERE enderecoId = :enderecoId")
+    Endereco getEnderecoById(int enderecoId);
 }
 
