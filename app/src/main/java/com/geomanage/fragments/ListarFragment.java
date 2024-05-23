@@ -77,6 +77,9 @@ public class ListarFragment extends Fragment {
     }
 
     public void loadCidades() {
+        if (adapter == null) {
+            return;
+        }
         AppDatabase db = AppDatabase.getDatabase(getContext());
         List<Cidade> cidades = db.cidadeDao().getAllCidades();
         items.clear();
@@ -87,6 +90,9 @@ public class ListarFragment extends Fragment {
     }
 
     public void loadEnderecos() {
+        if (adapter == null) {
+            return;
+        }
         AppDatabase db = AppDatabase.getDatabase(getContext());
         List<Endereco> enderecos = db.enderecoDao().getAllEnderecos();
         items.clear();
@@ -97,6 +103,9 @@ public class ListarFragment extends Fragment {
     }
 
     public void loadUsuarios() {
+        if (adapter == null) {
+            return;
+        }
         AppDatabase db = AppDatabase.getDatabase(getContext());
         List<Usuario> usuarios = db.usuarioDao().getAllUsuarios();
         items.clear();

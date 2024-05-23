@@ -110,7 +110,4 @@ public class CriarUsuarioActivity extends AppCompatActivity {
             }
         }).start();
     }
-
-
-    // TODO: Implementar lógica de criação de usuários
 }
