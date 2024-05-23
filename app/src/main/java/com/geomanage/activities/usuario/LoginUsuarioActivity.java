@@ -52,6 +52,12 @@ public class LoginUsuarioActivity extends AppCompatActivity {
         spannableString.setSpan(clickableSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.txtTelaCadastro.setText(spannableString);
         binding.txtTelaCadastro.setMovementMethod(LinkMovementMethod.getInstance());
+        binding.btEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login(v);
+            }
+        });
     }
 
     @Override
