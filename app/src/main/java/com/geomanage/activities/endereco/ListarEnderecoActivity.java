@@ -3,7 +3,7 @@ package com.geomanage.activities.endereco;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.geomanage.R;
 import com.geomanage.fragments.ListarFragment;
@@ -16,16 +16,15 @@ public class ListarEnderecoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar);
 
         if (savedInstanceState == null) {
-            ListarFragment fragment = new ListarFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment)
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            ListarFragment listarFragment = new ListarFragment();
+            Bundle args = new Bundle();
+            args.putString("TYPE", "ENDERECO");
+            listarFragment.setArguments(args);
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_listar, listarFragment)
                     .commit();
-            fragment.loadEnderecos();
-        } else {
-            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-            if (fragment instanceof ListarFragment) {
-                ((ListarFragment) fragment).loadEnderecos();
-            }
         }
     }
 }

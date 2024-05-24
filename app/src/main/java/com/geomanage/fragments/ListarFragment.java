@@ -76,6 +76,19 @@ public class ListarFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (Objects.equals(TYPE, DataType.CIDADE)) {
+            loadCidades();
+        } else if (Objects.equals(TYPE, DataType.ENDERECO)) {
+            loadEnderecos();
+        } else if (Objects.equals(TYPE, DataType.USUARIO)) {
+            loadUsuarios();
+        }
+    }
+
     public void loadCidades() {
         if (adapter == null) {
             return;
