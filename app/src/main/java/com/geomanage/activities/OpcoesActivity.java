@@ -7,7 +7,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.R;
- import com.geomanage.activities.cidade.ListarCidadeActivity;
+import com.geomanage.activities.cidade.AdicionarCidadeActivity;
+import com.geomanage.activities.cidade.ListarCidadeActivity;
 import com.geomanage.activities.endereco.ListarEnderecoActivity;
 import com.geomanage.activities.usuario.ListarUsuarioActivity;
 
@@ -40,7 +41,8 @@ public class OpcoesActivity extends AppCompatActivity {
         });
 
         btnCadastrarCidade.setOnClickListener(v -> {
-            //TODO: Adicione a intenção para cadastrar cidade aqui
+            Intent intent = new Intent(OpcoesActivity.this, AdicionarCidadeActivity.class);
+            startActivity(intent);
         });
 
         btnCadastrarEnderecos.setOnClickListener(v -> {

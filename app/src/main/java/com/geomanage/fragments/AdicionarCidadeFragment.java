@@ -18,17 +18,28 @@ import androidx.navigation.Navigation;
 import com.geomanage.R;
 import com.geomanage.database.AppDatabase;
 import com.geomanage.entities.Cidade;
+import com.geomanage.utils.DataType;
 
 public class AdicionarCidadeFragment extends Fragment {
 
     private EditText nomeEditText;
     private EditText estadoEditText;
+    private int cidadeId;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            this.cidadeId = getArguments().getInt("id");
+        }
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adicionar_cidade, container, false);
+        AppDatabase db = AppDatabase.getDatabase(getContext());
 
         nomeEditText = view.findViewById(R.id.nomeCidadeEditText);
         estadoEditText = view.findViewById(R.id.estadoEditText);
