@@ -1,6 +1,8 @@
 package com.geomanage.activities.endereco;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -22,10 +24,12 @@ import java.util.Objects;
 
 public class AdicionarEnderecoActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private SupportMapFragment mapFragment;
+    private static final String TAG = "AdicionarEnderecoActivity";
+
+    private GoogleMap googleMap;
     private TextInputEditText latitude, longitude, titulo;
     private Double vlr_latitude = -20.50232, vlr_longitude = -54.61349; // Localização padrão: FACOM
-    private String vlr_titulo;
+    private String vlr_titulo = "Localização Padrão";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,61 +39,55 @@ public class AdicionarEnderecoActivity extends AppCompatActivity implements OnMa
         latitude = findViewById(R.id.edt_latitudeEndereco);
         longitude = findViewById(R.id.edt_longitudeEndereco);
         titulo = findViewById(R.id.edt_tituloEndereco);
-
-        mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        System.out.println("ANTES DO SUPPORT MANAGER");
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map_endereco);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        } else {
+            Log.e(TAG, "Map Fragment is null");
+        }
 
-        // Botão buscar endereço
         AppCompatButton btnBuscarEndereco = findViewById(R.id.btn_buscar_endereco);
-        btnBuscarEndereco.setOnClickListener(view -> buscarEndereco());
+        btnBuscarEndereco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buscarEndereco();
+            }
+        });
 
-        // Botão visualizar detalhes do endereço
-        AppCompatButton btnVisualizarEndereco = findViewById(R.id.btn_visualizar_endereco);
-        btnVisualizarEndereco.setOnClickListener(v -> visualizarEndereco());
-
-        // Botão cancelar
         ImageButton btnCancelar = findViewById(R.id.btnCancelar);
         btnCancelar.setOnClickListener(v -> finish());
     }
 
     @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng latLng = new LatLng(vlr_latitude, vlr_longitude);
-
-        googleMap.addMarker(new MarkerOptions().position(latLng).title(vlr_titulo));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+    public void onMapReady(@NonNull GoogleMap map) {
+        this.googleMap = map;
+        atualizarMapa();
     }
 
-    public void buscarEndereco() {
+    private void buscarEndereco() {
         try {
             vlr_latitude = Double.parseDouble(Objects.requireNonNull(latitude.getText()).toString());
             vlr_longitude = Double.parseDouble(Objects.requireNonNull(longitude.getText()).toString());
             vlr_titulo = Objects.requireNonNull(titulo.getText()).toString();
-
-            mapFragment.getMapAsync(AdicionarEnderecoActivity.this);
-        } catch (Exception ignored) {
+            Log.d(TAG, "Buscar Endereço: Latitude: " + vlr_latitude + ", Longitude: " + vlr_longitude + ", Título: " + vlr_titulo);
+            atualizarMapa();
+        } catch (NumberFormatException e) {
+            Log.e(TAG, "Erro ao converter coordenadas", e);
         }
     }
 
-    public void visualizarEndereco() {
-        try {
-            vlr_latitude = Double.parseDouble(Objects.requireNonNull(latitude.getText()).toString());
-            vlr_longitude = Double.parseDouble(Objects.requireNonNull(longitude.getText()).toString());
-
-            Bundle bundle = new Bundle();
-            bundle.putDouble("latitude", vlr_latitude);
-            bundle.putDouble("longitude", vlr_longitude);
-
-            // Navegar para a Activity de detalhes (substitua com sua Activity de destino)
-            // Intent intent = new Intent(this, DetalhesEnderecoActivity.class);
-            // intent.putExtras(bundle);
-            // startActivity(intent);
-        } catch (Exception ignored) {
+    private void atualizarMapa() {
+        if (googleMap != null) {
+            LatLng latLng = new LatLng(vlr_latitude, vlr_longitude);
+            googleMap.clear();
+            googleMap.addMarker(new MarkerOptions().position(latLng).title(vlr_titulo));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        } else {
+            Log.e(TAG, "GoogleMap não está pronto");
         }
     }
 }

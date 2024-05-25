@@ -164,8 +164,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtInputLayout_tituloEndereco" />
 
-        <!-- Mapa -->
-        <androidx.fragment.app.FragmentContainerView
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/map_endereco"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
@@ -178,24 +177,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:context=".AdicionarEnderecoActivity" />
 
-        <!-- Botao visualizar detalhes -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_visualizar_endereco"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/background_btn_selector"
-            android:enabled="true"
-            android:padding="15dp"
-            android:text="@string/visualizar_detalhes_endereco"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/map_endereco"
-            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
