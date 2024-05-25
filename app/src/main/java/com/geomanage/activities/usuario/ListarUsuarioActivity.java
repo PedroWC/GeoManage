@@ -20,7 +20,7 @@ import java.util.List;
 public class ListarUsuarioActivity extends AppCompatActivity {
 
     private ArrayAdapter<String> adapter;
-    private final List<String> items = new ArrayList<>();
+    private final List<Usuario> usuarios = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,13 +28,16 @@ public class ListarUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar);
 
         ListView listView = findViewById(R.id.listView);
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            Usuario selectedUsuario = usuarios.get(position);
+
+            int usuarioId = selectedUsuario.getUsuarioId();
+
             Intent intent = new Intent(ListarUsuarioActivity.this, DetalhesUsuarioActivity.class);
-            intent.putExtra("usuarioId", position);
+            intent.putExtra("usuarioId", usuarioId);
             startActivity(intent);
         });
 
@@ -43,11 +46,15 @@ public class ListarUsuarioActivity extends AppCompatActivity {
 
     public void loadUsuarios() {
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        List<Usuario> usuarios = db.usuarioDao().getAllUsuarios();
-        items.clear();
+        usuarios.clear();
+        usuarios.addAll(db.usuarioDao().getAllUsuarios());
+
+        List<String> userNames = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            items.add(usuario.getNome());
+            userNames.add(usuario.getNome());
         }
+        adapter.clear();
+        adapter.addAll(userNames);
         adapter.notifyDataSetChanged();
     }
 }

@@ -28,6 +28,9 @@
             android:name=".activities.cidade.AdicionarCidadeActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.usuario.ListarUsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.endereco.ListarEnderecoActivity"
             android:exported="false" />
         <activity

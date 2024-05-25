@@ -37,7 +37,7 @@ public class DetalhesUsuarioActivity extends AppCompatActivity {
         db = AppDatabase.getDatabase(getApplicationContext());
 
         if (getIntent() != null) {
-            usuarioId = getIntent().getIntExtra("id", -1);
+            usuarioId = getIntent().getIntExtra("usuarioId", -1);
         }
 
         usuario = db.usuarioDao().getUsuarioById(usuarioId);
