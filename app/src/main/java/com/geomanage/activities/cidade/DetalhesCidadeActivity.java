@@ -29,14 +29,14 @@ public class DetalhesCidadeActivity extends AppCompatActivity {
         estadoTextView = findViewById(R.id.estadoEditText);
 
         if (getIntent() != null) {
-            cidadeId = getIntent().getIntExtra("id", -1); // Adiciona um valor padrão
+            cidadeId = getIntent().getIntExtra("cidadeId", -1);
+            System.out.println(cidadeId);
         }
 
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
 
         if (cidadeId != -1) {
             try {
-                // Carregar os dados da cidade com base no cidadeId
                 cidade = db.cidadeDao().getCidadeById(cidadeId);
                 if (cidade != null) {
                     cidadeTextView.setText(cidade.getCidade());

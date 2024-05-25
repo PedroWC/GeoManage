@@ -24,6 +24,9 @@ public interface CidadeDao {
     @Query("SELECT * FROM Cidade")
     List<Cidade> getAllCidades();
 
+    @Query("SELECT * FROM Cidade WHERE cidade = :cidadeName")
+    Cidade getCidadeByName(String cidadeName);
+
     @Query("SELECT * FROM Cidade WHERE cidadeId = :cidadeId")
     Cidade getCidadeById(int cidadeId);
 }
