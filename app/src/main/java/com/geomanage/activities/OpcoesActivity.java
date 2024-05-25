@@ -2,19 +2,23 @@ package com.geomanage.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.geomanage.R;
- import com.geomanage.activities.cidade.ListarCidadeActivity;
+import com.geomanage.activities.cidade.ListarCidadeActivity;
 import com.geomanage.activities.endereco.ListarEnderecoActivity;
 import com.geomanage.activities.usuario.ListarUsuarioActivity;
+import com.geomanage.activities.cidade.AdicionarCidadeActivity;
+import com.geomanage.activities.endereco.AdicionarEnderecoActivity;
 
 public class OpcoesActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opcoes);
 
@@ -40,11 +44,13 @@ public class OpcoesActivity extends AppCompatActivity {
         });
 
         btnCadastrarCidade.setOnClickListener(v -> {
-            //TODO: Adicione a intenção para cadastrar cidade aqui
+            Intent intent = new Intent(OpcoesActivity.this, AdicionarCidadeActivity.class);
+            startActivity(intent);
         });
 
         btnCadastrarEnderecos.setOnClickListener(v -> {
-            //TODO: Adicione a intenção para cadastrar endereços aqui
+            Intent intent = new Intent(OpcoesActivity.this, AdicionarEnderecoActivity.class);
+            startActivity(intent);
         });
     }
 }

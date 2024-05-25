@@ -1,92 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_logo"
-    tools:context=".activities.OpcoesActivity">
+    android:orientation="vertical"
+    android:background="@color/green_logo">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/btnListarCidades"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/green_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/colorBotao1"
+        android:text="@string/listar_cidades"
+        android:textColor="@color/colorTextBotoes"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableEndCompat="@drawable/right_arrow" />
 
-        <TextView
-            android:id="@+id/btnListarCidades"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:background="@color/colorBotao1"
-            android:text="@string/listar_cidades"
-            android:textColor="@color/colorTextBotoes"
-            android:textSize="18sp"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            app:drawableEndCompat="@drawable/right_arrow" />
+    <TextView
+        android:id="@+id/btnListarEnderecos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/colorBotao2"
+        android:text="@string/listar_enderecos"
+        android:textColor="@color/colorTextBotoes"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableEndCompat="@drawable/right_arrow" />
 
-        <TextView
-            android:id="@+id/btnListarEnderecos"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:background="@color/colorBotao2"
-            android:text="@string/listar_enderecos"
-            android:textColor="@color/colorTextBotoes"
-            android:textSize="18sp"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            app:drawableEndCompat="@drawable/right_arrow" />
+    <TextView
+        android:id="@+id/btnListarUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/colorBotao3"
+        android:text="@string/listar_usuarios"
+        android:textColor="@color/colorTextBotoes"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableEndCompat="@drawable/right_arrow" />
 
-        <TextView
-            android:id="@+id/btnListarUsuarios"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:background="@color/colorBotao3"
-            android:text="@string/listar_usuarios"
-            android:textColor="@color/colorTextBotoes"
-            android:textSize="18sp"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            app:drawableEndCompat="@drawable/right_arrow" />
+    <TextView
+        android:id="@+id/btnCadastrarCidade"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/colorBotao4"
+        android:text="@string/cadastrar_cidade"
+        android:textColor="@color/colorTextBotoes"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableEndCompat="@drawable/right_arrow" />
 
-        <TextView
-            android:id="@+id/btnCadastrarCidade"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:background="@color/colorBotao4"
-            android:text="@string/cadastrar_cidade"
-            android:textColor="@color/colorTextBotoes"
-            android:textSize="18sp"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            app:drawableEndCompat="@drawable/right_arrow" />
-
-        <TextView
-            android:id="@+id/btnCadastrarEnderecos"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:background="@color/colorBotao5"
-            android:text="@string/cadastrar_enderecos"
-            android:textColor="@color/colorTextBotoes"
-            android:textSize="18sp"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            app:drawableEndCompat="@drawable/right_arrow" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/btnCadastrarEnderecos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/colorBotao5"
+        android:text="@string/cadastrar_enderecos"
+        android:textColor="@color/colorTextBotoes"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableEndCompat="@drawable/right_arrow" />
+</LinearLayout>

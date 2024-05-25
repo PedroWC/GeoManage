@@ -13,13 +13,7 @@ public class Cidade {
 
     public String estado;
 
-    public int getCidadeId() {
-        return cidadeId;
-    }
-
-    public void setCidadeId(int cidadeId) {
-        this.cidadeId = cidadeId;
-    }
+    public int getCidadeId() { return cidadeId; }
 
     public String getCidade() {
         return cidade;

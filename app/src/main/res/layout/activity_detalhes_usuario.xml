@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_logo"
-        tools:context=".fragments.AdicionarCidadeFragment">
+        tools:context=".activities.usuario.DetalhesUsuarioActivity">
 
         <View
             android:id="@+id/containerTop"
@@ -20,14 +20,13 @@
             android:background="@color/green_logo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="@string/title_adicionar_cidade"
+            android:text="@string/title_detalhes_usuario"
             android:textSize="@dimen/title_size"
             android:textStyle="italic"
             android:textColor="@color/black"
@@ -66,11 +65,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nomeCidadeEditText"
+                android:id="@+id/nomeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
-                android:hint="@string/hint_nome_cidade"
+                android:hint="@string/hint_nome"
                 android:inputType="textPersonName"
                 android:maxLines="1"
                 android:padding="15dp"
@@ -98,22 +97,91 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/estadoEditText"
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
-                android:hint="@string/hint_estado"
-                android:inputType="text"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:padding="15dp"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutSenhaAtual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/senhaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_senha_atual"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutNovaSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutSenhaAtual"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/novaSenhaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:hint="@string/hint_nova_senha"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instrucao_alteracao_senha_usuario"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btRegistrarCidade"
+            android:id="@+id/btRegistrarUsuario"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -121,11 +189,27 @@
             android:background="@drawable/background_btn_selector"
             android:enabled="true"
             android:padding="15dp"
-            android:text="@string/txt_button_registrar"
+            android:text="@string/txt_button_editar"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEmail"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutNovaSenha"
+            app:layout_constraintBottom_toTopOf="@id/btExcluirUsuario" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btExcluirUsuario"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_btn_selector"
+            android:enabled="true"
+            android:padding="15dp"
+            android:text="@string/txt_button_excluir"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btRegistrarUsuario"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
