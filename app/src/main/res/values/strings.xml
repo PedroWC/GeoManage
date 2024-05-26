@@ -17,16 +17,11 @@
     <string name="cadastrar_cidade">Cadastrar Cidade</string>
     <string name="cadastrar_enderecos">Cadastrar Endereços</string>
     <string name="hint_nome_cidade">Nome da Cidade</string>
-    <string name="btn_adicionar_cidade">Adicionar Cidade</string>
-    <string name="hint_endereco">Endereço</string>
     <string name="hint_rua">Rua</string>
     <string name="hint_bairro">Bairro</string>
-    <string name="hint_cidade">Cidade</string>
     <string name="hint_estado">Estado</string>
     <string name="hint_pais">País</string>
     <string name="hint_cep">CEP</string>
-    <string name="txt_button_salvar">Salvar</string>
-    <string name="btn_adicionar_endereco">Adicionar Endereço</string>
     <string name="title_adicionar_cidade">Adicionar Cidade</string>
     <string name="descricao_cancelar">Cancelar</string>
     <string name="title_adicionar_endereco">Adicionar Endereço</string>
@@ -34,7 +29,6 @@
     <string name="hint_latitude_endereco">Latitude do endereço</string>
     <string name="hint_titulo_endereco">Título do endereço</string>
     <string name="btn_buscar_endereco">Buscar endereço</string>
-    <string name="visualizar_detalhes_endereco">Visualizar detalhes do endereço</string>
     <string name="title_detalhes_cidade">Detalhes da Cidade</string>
     <string name="txt_button_editar">Editar informações</string>
     <string name="txt_button_excluir">Excluir</string>
@@ -44,12 +38,7 @@
     <string name="hint_senha_atual">Senha atual</string>
     <string name="hint_nova_senha">Nova senha</string>
     <string name="instrucao_alteracao_senha_usuario">Se não desejar alterar a senha, por favor, insira a senha atual nos campos \'Senha Atual\' e \'Nova Senha\'.</string>
-    <string name="descricao_adicionar">Adicionar item</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txt_button_voltar">Voltar</string>
-    <string name="title_informacoes_endereco">Informações do Endereço</string>
-    <string name="btn_visualizar_infos_endereco">Visualizar informações</string>
     <string name="btn_salvar_endereco">Salvar endereço</string>
 
 
