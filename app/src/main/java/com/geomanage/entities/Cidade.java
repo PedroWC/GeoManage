@@ -35,7 +35,7 @@ public class Cidade {
     @NonNull
     @Override
     public String toString() {
-        return cidade;
+        return cidade + ", " + estado;
     }
 }
 
