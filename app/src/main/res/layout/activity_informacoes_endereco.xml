@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".activities.endereco.DetalhesEnderecoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_logo"
-        tools:context=".activities.endereco.DetalhesEnderecoActivity">
+        tools:context=".activities.endereco.InformacoesEndereco">
 
         <View
             android:id="@+id/containerTop"
@@ -26,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="@string/title_detalhes_endereco"
+            android:text="@string/title_informacoes_endereco"
             android:textSize="@dimen/title_size"
             android:textStyle="italic"
             android:textColor="@color/black"
@@ -35,20 +36,9 @@
             app:layout_constraintStart_toStartOf="@id/containerTop"
             app:layout_constraintTop_toTopOf="@id/containerTop" />
 
-        <ImageButton
-            android:id="@+id/btnCancelar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_cancel"
-            android:contentDescription="@string/descricao_cancelar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp" />
-
+        <!-- Endereço -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutDescricao"
+            android:id="@+id/txtInputLayoutEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/containerTop"
@@ -65,28 +55,28 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/descricaoEditText"
+                android:id="@+id/enderecoEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
-                android:hint="@string/hint_descricao_endereco"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                android:hint="@string/hint_endereco"
                 android:inputType="text"
                 android:maxLines="1"
                 android:editable="false"
                 android:focusable="false"
-                android:clickable="false"
-                android:padding="15dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Rua -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutRua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutDescricao"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEndereco"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
@@ -104,19 +94,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
                 android:hint="@string/hint_rua"
                 android:inputType="text"
                 android:maxLines="1"
                 android:editable="false"
                 android:focusable="false"
-                android:clickable="false"
-                android:padding="15dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Bairro -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutBairro"
             android:layout_width="match_parent"
@@ -139,21 +129,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
                 android:hint="@string/hint_bairro"
                 android:inputType="text"
                 android:maxLines="1"
                 android:editable="false"
                 android:focusable="false"
-                android:clickable="false"
-                android:padding="15dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Cidade -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutCidades"
+            android:id="@+id/txtInputLayoutCidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/txtInputLayoutBairro"
@@ -174,55 +164,89 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
-                android:hint="@string/hint_nome_cidade"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                android:hint="@string/hint_cidade"
                 android:inputType="text"
                 android:maxLines="1"
                 android:editable="false"
                 android:focusable="false"
-                android:clickable="false"
-                android:padding="15dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Estado -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputLayoutPais"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/txtInputLayoutEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutCidade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:boxStrokeColor="@color/dark_cyan_green"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutCidades"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/estadoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                android:hint="@string/hint_estado"
+                android:inputType="text"
+                android:maxLines="1"
+                android:editable="false"
+                android:focusable="false"
+                android:clickable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- País -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutPais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEstado"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="719dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:boxStrokeColor="@color/dark_cyan_green"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:errorTextColor="@color/red"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/paisEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
                 android:hint="@string/hint_pais"
                 android:inputType="text"
                 android:maxLines="1"
                 android:editable="false"
                 android:focusable="false"
-                android:clickable="false"
-                android:padding="15dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- CEP -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutCep"
             android:layout_width="match_parent"
@@ -245,34 +269,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_edittext"
-                android:hint="@string/hint_cep"
-                android:inputType="text"
-                android:maxLines="1"
-                android:editable="false"
-                android:focusable="false"
-                android:clickable="false"
                 android:padding="15dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
-
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                android:hint="@string/hint_cep"
+                android:inputType="number"
+                android:maxLines="1"
+                android:editable="false"
+                android:focusable="false"
+                android:clickable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Botão de Salvar -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btExcluirEndereco"
+            android:id="@+id/btnVoltar"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/background_btn_selector"
             android:enabled="true"
             android:padding="15dp"
-            android:text="@string/txt_button_excluir"
+            android:text="@string/txt_button_voltar"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutCep"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutCep"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

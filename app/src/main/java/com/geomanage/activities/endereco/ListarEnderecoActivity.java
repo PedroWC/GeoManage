@@ -2,7 +2,6 @@ package com.geomanage.activities.endereco;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.geomanage.R;
 import com.geomanage.database.AppDatabase;
 import com.geomanage.entities.Endereco;
-import com.geomanage.activities.endereco.DetalhesEnderecoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +18,7 @@ import java.util.List;
 public class ListarEnderecoActivity extends AppCompatActivity {
 
     private ArrayAdapter<String> adapter;
-    private final List<String> items = new ArrayList<>();
+    private List<Endereco> items;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,13 +26,15 @@ public class ListarEnderecoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar);
 
         ListView listView = findViewById(R.id.listView);
+        items = new ArrayList<>();
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            Endereco enderecoSelecionado = items.get(position);
             Intent intent = new Intent(ListarEnderecoActivity.this, DetalhesEnderecoActivity.class);
-            intent.putExtra("enderecoId", position);
+            intent.putExtra("endereco_id", enderecoSelecionado.getEnderecoId());
             startActivity(intent);
         });
 
@@ -45,9 +45,15 @@ public class ListarEnderecoActivity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
         List<Endereco> enderecos = db.enderecoDao().getAllEnderecos();
         items.clear();
-        for (Endereco endereco : enderecos) {
-            items.add(endereco.getDescricao());
+        items.addAll(enderecos);
+
+        List<String> enderecoDescricoes = new ArrayList<>();
+        for (Endereco endereco : items) {
+            enderecoDescricoes.add(endereco.getDescricao());
         }
+
+        adapter.clear();
+        adapter.addAll(enderecoDescricoes);
         adapter.notifyDataSetChanged();
     }
 }
